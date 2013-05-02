@@ -349,7 +349,11 @@ L<http://cpanratings.perl.org/d/Basket-Calc>
 
 =head1 ACKNOWLEDGEMENTS
 
+=over 4
+
 =item * Lenz Gschwendtner (@norbu09), for being an awesome mentor and friend.
+
+=back
 
 =cut
 
