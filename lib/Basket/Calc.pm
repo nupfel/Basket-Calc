@@ -1,11 +1,15 @@
 package Basket::Calc;
 
 use 5.010;
+use strict;
+use warnings;
 use Mouse;
 use Scalar::Util qw(looks_like_number);
 use Finance::Currency::Convert::Yahoo;
 use Carp;
 use feature 'switch';
+
+# ABSTRACT: Basket/Cart calculation library with support for currency conversion, discounts and tax
 
 =head1 NAME
 
@@ -13,11 +17,11 @@ Basket::Calc - Basket/Cart calculation library with support for currency convers
 
 =head1 VERSION
 
-Version 0.01
+Version 0.1
 
 =cut
 
-our $VERSION = '0.01';
+use version; our $VERSION = qv('0.1');
 
 =head1 SYNOPSIS
 
@@ -115,8 +119,7 @@ sub add_item {
 
     # calculate amount from quantity and price
     if (exists $item->{quantity}) {
-        unless (looks_like_number($item->{quantity}) and $item->{quantity} > 0)
-        {
+        if (!looks_like_number($item->{quantity}) || ($item->{quantity} < 0)) {
             carp "'quantity' is not a number or smaller than 0";
             return;
         }
@@ -180,7 +183,7 @@ sub add_discount {
         }
     }
 
-    unless ($discount->{type} =~ m/^(percent|amount)$/) {
+    unless ($discount->{type} =~ m/^(percent|amount)$/x) {
         carp "'type' has to be either percent, or amount";
         return;
     }
@@ -297,6 +300,8 @@ sub _set_debug {
     my ($self, $value, $some) = @_;
 
     $Finance::Currency::Convert::Yahoo::CHAT = $value;
+
+    return;
 }
 
 sub _round {
