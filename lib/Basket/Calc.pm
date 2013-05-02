@@ -1,8 +1,17 @@
+#
+# This file is part of Basket-Calc
+#
+# This software is copyright (c) 2013 by Tobias Kirschstein (@owner).
+#
+# This is free software; you can redistribute it and/or modify it under
+# the BSD license.
+#
+package Basket::Calc;
+
 use 5.010;
 use strict;
 use warnings;
 
-package Basket::Calc;
 {
     $Basket::Calc::VERSION = '0.1';
 }
@@ -307,16 +316,9 @@ sub _round {
     return sprintf('%.2f', sprintf('%.10f', $float)) + 0;
 }
 
-=head1 AUTHOR
-
-Tobias Kirschstein, C<< <lev at cpan.org> >>
-
-
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-basket-calc at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Basket-Calc>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests on GitHub's issue tracker L<https://github.com/nupfel/Basket-Calc/issues>.
 
 
 =head1 SUPPORT
@@ -330,9 +332,9 @@ You can also look for information at:
 
 =over 4
 
-=item * RT: CPAN's request tracker (report bugs here)
+=item * GitHub repository
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Basket-Calc>
+L<https://github.com/nupfel/Basket-Calc>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
@@ -342,26 +344,12 @@ L<http://annocpan.org/dist/Basket-Calc>
 
 L<http://cpanratings.perl.org/d/Basket-Calc>
 
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/Basket-Calc/>
-
 =back
 
 
 =head1 ACKNOWLEDGEMENTS
 
-
-=head1 LICENSE AND COPYRIGHT
-
-Copyright 2013 Tobias Kirschstein.
-
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
-
-See http://dev.perl.org/licenses/ for more information.
-
+=item * Lenz Gschwendtner (@norbu09), for being an awesome mentor and friend.
 
 =cut
 

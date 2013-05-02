@@ -6,7 +6,7 @@ Basket::Calc - Basket/Cart calculation library with support for currency convers
 
 =head1 VERSION
 
-version 0.1
+version 0.2
 
 =head1 SYNOPSIS
 
@@ -27,14 +27,6 @@ Perhaps a little code snippet.
     $basket->add_discount({ type => 'amount', value => 15, currency => 'HKD' });
     
     print dump $basket->calculate;
-
-=head1 NAME
-
-Basket::Calc - Basket/Cart calculation library with support for currency conversion, discounts and tax
-
-=head1 VERSION
-
-Version 0.1
 
 =head1 ATTRIBUTES
 
