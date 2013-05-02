@@ -127,7 +127,8 @@ sub add_item {
         $item->{amount} = $item->{price} * $item->{quantity};
     }
     else {
-        $item->{amount} = $item->{price};
+        $item->{amount}   = $item->{price};
+        $item->{quantity} = 1;
     }
 
     $item->{currency} = $self->currency
@@ -160,7 +161,7 @@ sub add_item {
 
     $self->items([ @{ $self->items || [] }, $item ]);
 
-    return $self->items;
+    return $item;
 }
 
 =head2 add_discount
@@ -242,6 +243,11 @@ sub add_discount {
 sub calculate {
     my ($self) = @_;
 
+    unless ($self->items) {
+        carp "no items added";
+        return;
+    }
+
     my $total = {
         value      => 0,
         net        => 0,
@@ -291,7 +297,6 @@ sub calculate {
 
     $self->empty_items;
     $self->no_discount;
-    $self->tax(0);
 
     return $total;
 }
