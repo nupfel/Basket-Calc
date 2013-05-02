@@ -1,20 +1,8 @@
-#
-# This file is part of Basket-Calc
-#
-# This software is copyright (c) 2013 by Tobias Kirschstein (@owner).
-#
-# This is free software; you can redistribute it and/or modify it under
-# the BSD license.
-#
 package Basket::Calc;
 
 use 5.010;
 use strict;
 use warnings;
-
-{
-    $Basket::Calc::VERSION = '0.1';
-}
 
 # ABSTRACT: Basket/Cart calculation library with support for currency conversion, discounts and tax
 
