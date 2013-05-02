@@ -1,0 +1,116 @@
+=pod
+
+=head1 NAME
+
+Basket::Calc - Basket/Cart calculation library with support for currency conversion, discounts and tax
+
+=head1 VERSION
+
+version 0.001
+
+=head1 SYNOPSIS
+
+Quick summary of what the module does.
+
+Perhaps a little code snippet.
+
+    use Basket::Calc;
+    use Data::Dump 'dump';
+
+    my $basket = Basket::Calc->new(debug => 1, currency => 'NZD', tax => .15);
+    $basket->add_item({ price => 14.90, currency => 'USD', quantity => 2 });
+    $basket->add_item({ price => 59, currency => 'EUR'});
+    $basket->add_item({ price => 119.15, currency => 'JPY' });
+    
+    $basket->add_discount({ type => 'percent', value => .2 });
+    # or
+    $basket->add_discount({ type => 'amount', value => 15, currency => 'HKD' });
+    
+    print dump $basket->calculate;
+
+=head1 NAME
+
+Basket::Calc - Basket/Cart calculation library with support for currency conversion, discounts and tax
+
+=head1 VERSION
+
+Version 0.1
+
+=head1 ATTRIBUTES
+
+=head2 debug
+
+=head2 currency
+
+=head2 tax
+
+=head1 SUBROUTINES/METHODS
+
+=head2 add_item
+
+=head2 add_discount
+
+=head2 calculate
+
+=head1 AUTHOR
+
+Tobias Kirschstein, C<< <lev at cpan.org> >>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-basket-calc at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Basket-Calc>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc Basket::Calc
+
+You can also look for information at:
+
+=over 4
+
+=item * RT: CPAN's request tracker (report bugs here)
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Basket-Calc>
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/Basket-Calc>
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/d/Basket-Calc>
+
+=item * Search CPAN
+
+L<http://search.cpan.org/dist/Basket-Calc/>
+
+=back
+
+=head1 ACKNOWLEDGEMENTS
+
+=head1 LICENSE AND COPYRIGHT
+
+Copyright 2013 Tobias Kirschstein.
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.
+
+See http://dev.perl.org/licenses/ for more information.
+
+=head1 AUTHOR
+
+Tobias Kirschstein <lev@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Tobias Kirschstein.
+
+This is free software, licensed under:
+
+  The (three-clause) BSD License
+
