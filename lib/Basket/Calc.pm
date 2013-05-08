@@ -302,6 +302,10 @@ sub _set_debug {
 sub _round {
     my ($float) = @_;
 
+    # some stupid perl versions on some platforms can't round correctly and i
+    # don't want to use more modules
+    $float += 0.001 if ($float =~ m/\.[0-9]{2}5/);
+
     return sprintf('%.2f', sprintf('%.10f', $float)) + 0;
 }
 
