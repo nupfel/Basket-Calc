@@ -1,6 +1,6 @@
 package Basket::Calc;
 
-use 5.010;
+use 5.010001;
 use Mouse;
 use experimental 'smartmatch';
 
